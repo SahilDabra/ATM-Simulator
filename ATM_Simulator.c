@@ -79,37 +79,34 @@ void load()
 }
 
 // it will trim the statemnt file because we only need last 5 statemnets 
+
 void trimOld()
 {
-    char arr[5][200];
-    int s,c=0;
-
-    FILE *fp = fopen(tf,"r");
-    if(fp!=NULL){
-        while(fgets(arr[c],sizeof(arr[c]),fp) && c<5){
+    char arr[1000][200];
+    int c=0;
+    FILE *fp=fopen(tf, "r");
+    if (fp != NULL)
+    {
+        while (c<1000&&fgets(arr[c],sizeof(arr[c]),fp))
+        {
             c++;
         }
         fclose(fp);
     }
-
-    fp = fopen(tf,"w");
+    fp=fopen(tf,"w");
+    int start=0;
     if (c>5)
     {
-      s=c-5;
+        start=c-5;  
     }
-    else{
-      s=0;
-    }
-    for(int i=s;i<c;i++)
+    for (int i=start+1;i<c;i++)
     {
         fputs(arr[i],fp);
     }
-
     fclose(fp);
 }
 
-
-
+// main function
 int main() 
 {
     load();
@@ -195,7 +192,7 @@ int main()
             printf("thankyou for using he ATM \n");
             break;
         }
-        else if(ch=5)
+        else if(ch==5)
         {
           chnagepin();
         }
@@ -206,5 +203,6 @@ int main()
 
     return 0;
 }
+
 
 
