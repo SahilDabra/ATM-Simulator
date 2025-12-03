@@ -78,8 +78,7 @@ void load()
     fclose(fp);
 }
 
-// it will trim the statemnt file because we only need last 5 statemnets 
-
+// to maintain last 4 transactions 
 void trimOld()
 {
     char arr[1000][200];
@@ -106,7 +105,6 @@ void trimOld()
     fclose(fp);
 }
 
-// main function
 int main() 
 {
     load();
@@ -203,6 +201,5 @@ int main()
 
     return 0;
 }
-
 
 
